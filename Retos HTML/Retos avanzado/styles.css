@@ -1,0 +1,19 @@
+button:disabled {
+    opacity: 0.5;
+}
+
+li:empty {
+    display: none;
+}
+
+tr td:last-child {
+    background-color: lightblue;
+}
+
+tr:nth-child(n+4):nth-child(even) {
+    background-color: lightgray;
+}
+
+li:not(:last-child) {
+    color: red;
+}

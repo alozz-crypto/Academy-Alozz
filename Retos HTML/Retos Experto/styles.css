@@ -1,0 +1,27 @@
+p::first-letter {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: blue;
+}
+
+p::first-line {
+    color: blue;
+}
+
+p::before {
+    content: "★ ";
+    color: red;
+    font-weight: bold;
+}
+
+input:focus {
+    border: 2px solid green;
+}
+
+p:first-of-type {
+    background-color: lightblue;
+}
+
+li:nth-child(3n) {
+    color: darkorange;
+}

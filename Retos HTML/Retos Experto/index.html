@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retos Experto CSS</title>
+    <link rel="stylesheet" href="styles_expert.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("p:contains('importante')").css("background-color", "yellow");
+        });
+    </script>
+</head>
+<body>
+    <h1>Retos Experto de CSS</h1>
+    
+    <h2>Primeras tres palabras resaltadas</h2>
+    <p>Las primeras palabras de este párrafo están resaltadas.</p>
+    <p>Este es otro párrafo de ejemplo con palabras resaltadas.</p>
+    
+    <h2>Texto con palabra 'importante' resaltado</h2>
+    <p>Este es un mensaje importante que debe resaltarse.</p>
+    <p>Este texto no tiene la palabra clave.</p>
+    
+    <h2>Input con borde cambiado en foco</h2>
+    <input type="text" placeholder="Escribe algo...">
+    
+    <h2>Primer párrafo en cada div resaltado</h2>
+    <div>
+        <p>Este es el primer párrafo dentro de un div.</p>
+        <p>Este es otro párrafo dentro del mismo div.</p>
+    </div>
+    <div>
+        <p>Otro primer párrafo dentro de otro div.</p>
+        <p>Más contenido en este div.</p>
+    </div>
+    
+    <h2>Cada tercer elemento de la lista resaltado</h2>
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
+        <li>Elemento 6</li>
+        <li>Elemento 7</li>
+        <li>Elemento 8</li>
+        <li>Elemento 9</li>
+        <li>Elemento 10</li>
+    </ul>
+</body>
+</html>

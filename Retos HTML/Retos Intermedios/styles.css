@@ -1,0 +1,23 @@
+input:required {
+    border: 2px solid red;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: orange;
+}
+
+tr td:nth-child(2) {
+    background-color: yellow;
+}
+
+p:has(a), p a {
+    background-color: lightgreen;
+}
+
+.contenedor div:nth-child(odd) {
+    background-color: lightcoral;
+}
