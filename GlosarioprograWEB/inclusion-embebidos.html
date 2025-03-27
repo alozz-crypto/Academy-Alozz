@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos de Inclusión y Embebidos</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #3730a3;
+            --accent-color: #a5b4fc;
+            --text-color: #1e293b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        pre {
+            background: #f5f3ff;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            border-left: 3px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .embed-demo {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .responsive-embed {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .responsive-embed iframe,
+        .responsive-embed object,
+        .responsive-embed embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .embed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .embed-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .object-demo {
+            width: 100%;
+            min-height: 300px;
+            background: #eef2ff;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1>Elementos de Inclusión y Embebidos</h1>
+        
+        <section>
+            <h2>Iframes</h2>
+            <pre><code>&lt;iframe 
+  src="https://ejemplo.com" 
+  width="600" 
+  height="400"
+  title="Ejemplo iframe"&gt;
+&lt;/iframe&gt;</code></pre>
+            
+            <div class="embed-demo">
+                <h3>Iframe Responsive</h3>
+                <div class="responsive-embed">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Ejemplo de iframe" 
+                            allowfullscreen></iframe>
+                </div>
+                <p>Iframe de YouTube con relación de aspecto 16:9 responsive</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Elementos Multimedia</h2>
+            <div class="embed-grid">
+                <div class="embed-card">
+                    <h3>Embed de Video</h3>
+                    <pre><code>&lt;video controls width="100%"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+                    <video controls width="100%" poster="https://via.placeholder.com/800x450/4f46e5/ffffff?text=Video+Placeholder">
+                        <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+                        Tu navegador no soporta video HTML5.
+                    </video>
+                </div>
+                
+                <div class="embed-card">
+                    <h3>Embed de Audio</h3>
+                    <pre><code>&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre>
+                    <audio controls style="width: 100%">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Tu navegador no soporta audio HTML5.
+                    </audio>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Elemento &lt;object&gt;</h2>
+            <pre><code>&lt;object 
+  data="documento.pdf" 
+  type="application/pdf"
+  width="100%" 
+  height="500"&gt;
+  [Texto alternativo]
+&lt;/object&gt;</code></pre>
+            
+            <div class="embed-demo">
+                <h3>Ejemplo con PDF embebido</h3>
+                <div class="object-demo">
+                    <p>Ejemplo de área para documento PDF embebido</p>
+                </div>
+                <p><small>Nota: Para ver PDF reales, necesitas un documento PDF válido</small></p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Incrustar Mapas</h2>
+            <pre><code>&lt;iframe
+  src="https://maps.google.com/maps?q=mexico&output=embed"
+  width="600"
+  height="450"
+  style="border:0"&gt;
+&lt;/iframe&gt;</code></pre>
+            
+            <div class="embed-demo">
+                <h3>Mapa de Google embebido</h3>
+                <div class="responsive-embed" style="padding-bottom: 75%;">
+                    <iframe src="https://maps.google.com/maps?q=mexico&output=embed" 
+                            style="border:0"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

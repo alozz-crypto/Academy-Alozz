@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos Interactivos HTML</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #3730a3;
+            --accent-color: #a5b4fc;
+            --text-color: #1e293b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        pre {
+            background: #f5f3ff;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            border-left: 3px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .interactive-demo {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+        }
+        
+        /* Estilos para elementos interactivos */
+        details {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid var(--accent-color);
+            cursor: pointer;
+        }
+        
+        summary {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        dialog {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            width: 80%;
+            max-width: 500px;
+        }
+        
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0.5rem 0;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .canvas-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        canvas {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 100%;
+        }
+        
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .interactive-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1>Elementos Interactivos HTML</h1>
+        
+        <section>
+            <h2>Controles de Acordeón (&lt;details&gt; y &lt;summary&gt;)</h2>
+            <pre><code>&lt;details&gt;
+    &lt;summary&gt;Ver más información&lt;/summary&gt;
+    &lt;p&gt;Contenido adicional aquí...&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+            
+            <div class="interactive-demo">
+                <details>
+                    <summary>¿Qué es HTML?</summary>
+                    <p>HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web.</p>
+                </details>
+                
+                <details>
+                    <summary>¿Qué es CSS?</summary>
+                    <p>CSS (Cascading Style Sheets) es un lenguaje de diseño para dar estilo a páginas web.</p>
+                </details>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Diálogos Modales (&lt;dialog&gt;)</h2>
+            <pre><code>&lt;dialog id="miDialogo"&gt;
+    &lt;p&gt;¿Estás seguro de continuar?&lt;/p&gt;
+    &lt;button onclick="miDialogo.close()"&gt;Cerrar&lt;/button&gt;
+&lt;/dialog&gt;
+
+&lt;button onclick="miDialogo.showModal()"&gt;
+    Abrir diálogo
+&lt;/button&gt;</code></pre>
+            
+            <div class="interactive-demo">
+                <button onclick="document.getElementById('demoDialog').showModal()">
+                    Abrir diálogo modal
+                </button>
+                
+                <dialog id="demoDialog">
+                    <h3 style="margin-top: 0;">¡Diálogo de Ejemplo!</h3>
+                    <p>Este es un diálogo modal nativo de HTML.</p>
+                    <button onclick="demoDialog.close()">Cerrar</button>
+                </dialog>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Gráficos con &lt;canvas&gt;</h2>
+            <div class="interactive-grid">
+                <div class="interactive-card">
+                    <h3>Código HTML</h3>
+                    <pre><code>&lt;canvas id="miCanvas" 
+        width="300" height="200"&gt;
+    Tu navegador no soporta canvas.
+&lt;/canvas&gt;</code></pre>
+                </div>
+                
+                <div class="interactive-card">
+                    <h3>JavaScript</h3>
+                    <pre><code>const canvas = document
+  .getElementById('miCanvas');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = '#4f46e5';
+ctx.fillRect(50, 50, 200, 100);</code></pre>
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="miCanvas" width="300" height="200">
+                    Tu navegador no soporta canvas.
+                </canvas>
+            </div>
+        </section>
+        
+        <section>
+            <h2>SVG (Gráficos Vectoriales)</h2>
+            <pre><code>&lt;svg width="200" height="200"&gt;
+    &lt;circle cx="100" cy="100" r="80" 
+            fill="#4f46e5" /&gt;
+    &lt;rect x="50" y="50" width="100" 
+          height="50" fill="#a5b4fc" /&gt;
+&lt;/svg&gt;</code></pre>
+            
+            <div class="interactive-demo" style="text-align: center;">
+                <svg width="200" height="200">
+                    <circle cx="100" cy="100" r="80" fill="#4f46e5" />
+                    <rect x="50" y="50" width="100" height="50" fill="#a5b4fc" />
+                    <polygon points="100,20 40,180 160,180" fill="#3730a3" />
+                </svg>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Dibujo en canvas
+        const canvas = document.getElementById('miCanvas');
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            
+            // Rectángulo
+            ctx.fillStyle = '#4f46e5';
+            ctx.fillRect(50, 50, 200, 100);
+            
+            // Círculo
+            ctx.fillStyle = '#a5b4fc';
+            ctx.beginPath();
+            ctx.arc(150, 100, 40, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Texto
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '20px Arial';
+            ctx.fillText('Canvas', 120, 110);
+        }
+    </script>
+</body>
+</html>

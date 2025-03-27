@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas Obsoletas en HTML5</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #3730a3;
+            --accent-color: #a5b4fc;
+            --text-color: #1e293b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --obsolete-color: #dc2626;
+            --replacement-color: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .warning-header {
+            background-color: var(--obsolete-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .warning-header::before {
+            content: "⚠";
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+        }
+        
+        pre {
+            background: #fee2e2;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            border-left: 3px solid var(--obsolete-color);
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        pre::before {
+            content: "OBSOLETO";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--obsolete-color);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            border-bottom-left-radius: var(--border-radius);
+        }
+        
+        .replacement-code {
+            background: #ecfdf5;
+            border-left: 3px solid var(--replacement-color);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+        
+        .replacement-code::before {
+            content: "ALTERNATIVA MODERNA";
+            display: block;
+            color: var(--replacement-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .obsolete-tag {
+            color: var(--obsolete-color);
+            font-weight: bold;
+            font-family: monospace;
+        }
+        
+        .replacement-tag {
+            color: var(--replacement-color);
+            font-weight: bold;
+            font-family: monospace;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge-obsolete {
+            background-color: #fee2e2;
+            color: var(--obsolete-color);
+        }
+        
+        .badge-replacement {
+            background-color: #ecfdf5;
+            color: var(--replacement-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1>Etiquetas Obsoletas en HTML5</h1>
+        
+        <div class="warning-header">
+            Estas etiquetas no deben usarse en nuevos proyectos. Han sido reemplazadas por alternativas modernas.
+        </div>
+        
+        <section>
+            <h2>Etiquetas de Formato Obsoletas</h2>
+            <pre><code>&lt;font face="Arial" size="4" color="red"&gt;Texto&lt;/font&gt;
+&lt;center&gt;Texto centrado&lt;/center&gt;
+&lt;strike&gt;Texto tachado&lt;/strike&gt;
+&lt;u&gt;Texto subrayado&lt;/u&gt;</code></pre>
+            
+            <div class="replacement-code">
+                <p>Alternativas con CSS:</p>
+                <code>
+                    &lt;p style="font-family: Arial; font-size: 1rem; color: red;"&gt;Texto&lt;/p&gt;<br>
+                    &lt;p style="text-align: center;"&gt;Texto centrado&lt;/p&gt;<br>
+                    &lt;del&gt;Texto tachado&lt;/del&gt; o &lt;span style="text-decoration: line-through;"&gt;...&lt;/span&gt;<br>
+                    &lt;span style="text-decoration: underline;"&gt;Texto subrayado&lt;/span&gt;
+                </code>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Otras Etiquetas Desaprobadas</h2>
+            <pre><code>&lt;frameset&gt;
+  &lt;frame src="menu.html"&gt;
+  &lt;frame src="contenido.html"&gt;
+&lt;/frameset&gt;
+&lt;applet code="MiApplet.class"&gt;&lt;/applet&gt;
+&lt;marquee&gt;Texto que se mueve&lt;/marquee&gt;</code></pre>
+            
+            <div class="replacement-code">
+                <p>Alternativas modernas:</p>
+                <code>
+                    Usar &lt;iframe&gt; o diseño CSS moderno en lugar de frames<br>
+                    Usar &lt;object&gt; o tecnologías modernas (JavaScript) en lugar de applets<br>
+                    Usar animaciones CSS o JavaScript para efectos de movimiento
+                </code>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Tabla Comparativa</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Etiqueta Obsoleta</th>
+                        <th>Alternativa Recomendada</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="obsolete-tag">&lt;big&gt;</td>
+                        <td class="replacement-tag">font-size en CSS</td>
+                        <td><span class="badge badge-obsolete">Formato</span></td>
+                    </tr>
+                    <tr>
+                        <td class="obsolete-tag">&lt;tt&gt;</td>
+                        <td class="replacement-tag">&lt;code&gt; o font-family: monospace</td>
+                        <td><span class="badge badge-obsolete">Tipografía</span></td>
+                    </tr>
+                    <tr>
+                        <td class="obsolete-tag">&lt;acronym&gt;</td>
+                        <td class="replacement-tag">&lt;abbr&gt;</td>
+                        <td><span class="badge badge-obsolete">Semántica</span></td>
+                    </tr>
+                    <tr>
+                        <td class="obsolete-tag">&lt;dir&gt;</td>
+                        <td class="replacement-tag">&lt;ul&gt;</td>
+                        <td><span class="badge badge-obsolete">Listas</span></td>
+                    </tr>
+                    <tr>
+                        <td class="obsolete-tag">&lt;blink&gt;</td>
+                        <td class="replacement-tag">Animación CSS</td>
+                        <td><span class="badge badge-obsolete">Efecto</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2>¿Por qué se volvieron obsoletas?</h2>
+            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: var(--border-radius);">
+                <ul>
+                    <li><strong>Separación de preocupaciones:</strong> HTML para estructura, CSS para presentación</li>
+                    <li><strong>Problemas de accesibilidad:</strong> Muchas etiquetas antiguas causaban problemas con lectores de pantalla</li>
+                    <li><strong>Mantenimiento:</strong> Las alternativas modernas son más fáciles de mantener</li>
+                    <li><strong>Rendimiento:</strong> Algunas etiquetas como &lt;blink&gt; consumían muchos recursos</li>
+                    <li><strong>Estandarización:</strong> HTML5 buscó simplificar y unificar el lenguaje</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

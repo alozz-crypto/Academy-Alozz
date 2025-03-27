@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura del Documento HTML</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #3730a3;
+            --accent-color: #a5b4fc;
+            --text-color: #1e293b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        pre {
+            background: #f5f3ff;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            border-left: 3px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .structure-demo {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+        }
+
+        .html-tag {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .comment {
+            color: #64748b;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1>Estructura del Documento HTML</h1>
+        
+        <section>
+            <h2>Esqueleto Básico</h2>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;<span class="html-tag">html</span> <span class="html-tag">lang</span>=<span class="html-tag">"es"</span>&gt;
+&lt;<span class="html-tag">head</span>&gt;
+    &lt;<span class="html-tag">meta</span> <span class="html-tag">charset</span>=<span class="html-tag">"UTF-8"</span>&gt;
+    &lt;<span class="html-tag">meta</span> <span class="html-tag">name</span>=<span class="html-tag">"viewport"</span> <span class="html-tag">content</span>=<span class="html-tag">"width=device-width, initial-scale=1.0"</span>&gt;
+    &lt;<span class="html-tag">title</span>&gt;Título del Documento&lt;/<span class="html-tag">title</span>&gt;
+&lt;/<span class="html-tag">head</span>&gt;
+&lt;<span class="html-tag">body</span>&gt;
+    <span class="comment">&lt;!-- Contenido visible --&gt;</span>
+&lt;/<span class="html-tag">body</span>&gt;
+&lt;/<span class="html-tag">html</span>&gt;</code></pre>
+            
+            <div class="structure-demo">
+                <h3>Partes fundamentales:</h3>
+                <ul>
+                    <li><strong>DOCTYPE</strong>: Declara el tipo de documento</li>
+                    <li><strong>html</strong>: Elemento raíz con atributo de idioma</li>
+                    <li><strong>head</strong>: Metadatos y recursos no visibles</li>
+                    <li><strong>body</strong>: Contenido visible de la página</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Zonas Semánticas</h2>
+            <pre><code>&lt;<span class="html-tag">header</span>&gt;Cabecera&lt;/<span class="html-tag">header</span>&gt;
+&lt;<span class="html-tag">nav</span>&gt;Navegación&lt;/<span class="html-tag">nav</span>&gt;
+&lt;<span class="html-tag">main</span>&gt;
+    &lt;<span class="html-tag">article</span>&gt;Contenido principal&lt;/<span class="html-tag">article</span>&gt;
+&lt;/<span class="html-tag">main</span>&gt;
+&lt;<span class="html-tag">footer</span>&gt;Pie de página&lt;/<span class="html-tag">footer</span>&gt;</code></pre>
+            
+            <div class="structure-demo" style="background: #eef2ff;">
+                <h3>Estructura típica:</h3>
+                <div style="border: 2px dashed var(--accent-color); padding: 1rem; border-radius: var(--border-radius);">
+                    <div style="background: var(--primary-color); color: white; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">&lt;header&gt;</div>
+                    <div style="background: var(--accent-color); padding: 0.75rem; border-radius: 4px; margin-bottom: 0.5rem;">&lt;nav&gt;</div>
+                    <div style="background: #c7d2fe; padding: 2rem 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                        &lt;main&gt; 
+                        <div style="background: #a5b4fc; padding: 1.5rem; border-radius: 4px;">&lt;article&gt;</div>
+                        </main>
+                    </div>
+                    <div style="background: var(--primary-color); color: white; padding: 1rem; border-radius: 4px;">&lt;footer&gt;</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Metadatos Esenciales</h2>
+            <pre><code>&lt;<span class="html-tag">head</span>&gt;
+    &lt;<span class="html-tag">meta</span> <span class="html-tag">charset</span>=<span class="html-tag">"UTF-8"</span>&gt;
+    &lt;<span class="html-tag">meta</span> <span class="html-tag">name</span>=<span class="html-tag">"viewport"</span> <span class="html-tag">content</span>=<span class="html-tag">"width=device-width, initial-scale=1.0"</span>&gt;
+    &lt;<span class="html-tag">meta</span> <span class="html-tag">name</span>=<span class="html-tag">"description"</span> <span class="html-tag">content</span>=<span class="html-tag">"Descripción del sitio"</span>&gt;
+    &lt;<span class="html-tag">link</span> <span class="html-tag">rel</span>=<span class="html-tag">"icon"</span> <span class="html-tag">href</span>=<span class="html-tag">"favicon.ico"</span>&gt;
+&lt;/<span class="html-tag">head</span>&gt;</code></pre>
+            
+            <div class="structure-demo">
+                <h3>Importancia de cada uno:</h3>
+                <ul>
+                    <li><strong>charset</strong>: Define la codificación de caracteres</li>
+                    <li><strong>viewport</strong>: Hace el sitio responsive en móviles</li>
+                    <li><strong>description</strong>: Para SEO y resultados de búsqueda</li>
+                    <li><strong>favicon</strong>: Ícono visible en la pestaña del navegador</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

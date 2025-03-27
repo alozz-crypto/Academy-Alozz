@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas en HTML</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #3730a3;
+            --accent-color: #a5b4fc;
+            --text-color: #1e293b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        pre {
+            background: #f5f3ff;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            border-left: 3px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .table-demo {
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: var(--box-shadow);
+            font-size: 0.95rem;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        tr:hover {
+            background-color: #f0f9ff;
+        }
+        
+        caption {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            text-align: left;
+        }
+        
+        .table-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .table-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table-container h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .zebra-table {
+            --stripe-color: #f5f3ff;
+            --th-color: #4f46e5;
+            --th-text: white;
+        }
+        
+        .zebra-table tr:nth-child(even) {
+            background-color: var(--stripe-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1>Tablas en HTML</h1>
+        
+        <section>
+            <h2>Estructura Básica</h2>
+            <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Encabezado 1&lt;/th&gt;
+        &lt;th&gt;Encabezado 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Dato 1&lt;/td&gt;
+        &lt;td&gt;Dato 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            
+            <div class="table-demo">
+                <table>
+                    <caption>Ejemplo de tabla básica</caption>
+                    <tr>
+                        <th>País</th>
+                        <th>Capital</th>
+                        <th>Idioma</th>
+                    </tr>
+                    <tr>
+                        <td>México</td>
+                        <td>Ciudad de México</td>
+                        <td>Español</td>
+                    </tr>
+                    <tr>
+                        <td>Francia</td>
+                        <td>París</td>
+                        <td>Francés</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Elementos Semánticos</h2>
+            <pre><code>&lt;table&gt;
+    &lt;caption&gt;Título&lt;/caption&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Encabezados&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Datos&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;Resumen&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            
+            <div class="table-demo">
+                <table class="zebra-table">
+                    <caption>Tabla semántica con zebra-stripe</caption>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>$1,200</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>Tablet</td>
+                            <td>$350</td>
+                            <td>22</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Total</th>
+                            <td>$1,550</td>
+                            <td>37</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>Combinar Celdas</h2>
+            <div class="table-examples">
+                <div class="table-container">
+                    <h3>Combinación de columnas (colspan)</h3>
+                    <table>
+                        <tr>
+                            <th colspan="2">Información del Cliente</th>
+                        </tr>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td>María García</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="table-container">
+                    <h3>Combinación de filas (rowspan)</h3>
+                    <table>
+                        <tr>
+                            <th rowspan="2">Mes</th>
+                            <th colspan="2">Ventas</th>
+                        </tr>
+                        <tr>
+                            <th>Online</th>
+                            <th>Tienda</th>
+                        </tr>
+                        <tr>
+                            <td>Enero</td>
+                            <td>$5,000</td>
+                            <td>$3,200</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

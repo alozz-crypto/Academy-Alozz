@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imágenes y Multimedia en HTML</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #3730a3;
+            --accent-color: #a5b4fc;
+            --text-color: #1e293b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        pre {
+            background: #f5f3ff;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            border-left: 3px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .media-demo {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .responsive-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .media-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        audio, video {
+            width: 100%;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+        
+        .figure-style {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #eef2ff;
+            border-radius: var(--border-radius);
+        }
+        
+        .figure-style figcaption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1>Imágenes y Multimedia en HTML</h1>
+        
+        <section>
+            <h2>Etiqueta &lt;img&gt;</h2>
+            <pre><code>&lt;img src="imagen.jpg" alt="Descripción" 
+     width="800" height="450" loading="lazy"&gt;</code></pre>
+            
+            <div class="media-demo">
+                <figure class="figure-style">
+                    <img src="https://via.placeholder.com/800x450/4f46e5/ffffff?text=Ejemplo+de+Imagen" 
+                         alt="Imagen de ejemplo con diseño responsive" 
+                         class="responsive-img"
+                         loading="lazy">
+                    <figcaption>Figura 1: Imagen con estilo responsive</figcaption>
+                </figure>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Multimedia: &lt;audio&gt; y &lt;video&gt;</h2>
+            <pre><code>&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    Tu navegador no soporta audio.
+&lt;/audio&gt;
+
+&lt;video controls width="600" poster="miniatura.jpg"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    Tu navegador no soporta video.
+&lt;/video&gt;</code></pre>
+            
+            <div class="media-grid">
+                <div class="media-card">
+                    <h3>Reproductor de Audio</h3>
+                    <audio controls>
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Tu navegador no soporta audio.
+                    </audio>
+                </div>
+                
+                <div class="media-card">
+                    <h3>Reproductor de Video</h3>
+                    <video controls poster="https://via.placeholder.com/600x338/4f46e5/ffffff?text=Video+Preview" style="background: #000;">
+                        <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Atributos Avanzados</h2>
+            <div class="media-grid">
+                <div class="media-card">
+                    <h3>Imagen con mapa</h3>
+                    <pre><code>&lt;img usemap="#mapa" src="imagen.jpg"&gt;
+&lt;map name="mapa"&gt;
+    &lt;area shape="rect" coords="x1,y1,x2,y2" 
+          href="enlace.html" alt="Área 1"&gt;
+&lt;/map&gt;</code></pre>
+                </div>
+                
+                <div class="media-card">
+                    <h3>Video con autoplay</h3>
+                    <pre><code>&lt;video autoplay muted loop&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
