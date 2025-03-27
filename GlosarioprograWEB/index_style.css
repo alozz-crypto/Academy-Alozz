@@ -1,0 +1,209 @@
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #3730a3;
+    --accent-color: #a5b4fc;
+    --text-color: #1e293b;
+    --light-bg: #f8fafc;
+    --dark-bg: #e2e8f0;
+    --card-bg: #ffffff;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Navigation Styles */
+nav {
+    width: 280px;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--dark-bg);
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.course-index {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.course-index li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.course-index a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.course-index a:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+.course-index a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Main Content Styles */
+main {
+    margin-left: 280px;
+    padding: 2rem;
+}
+
+iframe {
+    width: calc(100% - 280px);
+    height: 100vh;
+    border: none;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    margin-left: 280px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    nav {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--dark-bg);
+    }
+    
+    main, footer {
+        margin-left: 0;
+    }
+    
+    iframe {
+        width: 100%;
+        height: 80vh;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    nav {
+        padding: 1rem;
+    }
+    
+    .course-index a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+}
+
+/* Course Card Styles */
+.course-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.course-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Welcome Section */
+.welcome-section {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Progress Indicator */
+.progress-container {
+    width: 100%;
+    background-color: var(--dark-bg);
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
+}
+
+.progress-bar {
+    height: 10px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius);
+    width: 0%;
+    transition: width 0.5s ease;
+}
